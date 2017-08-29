@@ -1,0 +1,5 @@
+kafkahome=/opt/app/dmaap/msgrtr/kafka
+topicURL=http://<mr_host>:3904
+topicname=com.att.agenttest
+mechid=<aaf_id>
+password=<aaf_password>

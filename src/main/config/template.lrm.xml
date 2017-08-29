@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+     ============LICENSE_START=======================================================
+     org.onap.dmaap
+     ================================================================================
+     Copyright © 2017 AT&T Intellectual Property. All rights reserved.
+     ================================================================================
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+           http://www.apache.org/licenses/LICENSE-2.0
+     
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+     ============LICENSE_END=========================================================
+   
+     ECOMP is a trademark and service mark of AT&T Intellectual Property.
+     
+ -->
+
+<ns2:ManagedResourceList xmlns="http://scld.att.com/lrm/commontypes"
+	xmlns:ns2="http://scld.att.com/lrm/util" xmlns:ns3="http://scld.att.com/lrm/types">
+	<ns2:ManagedResource>
+		<ResourceDescriptor>
+			<ResourceName>__SOA_CLOUD_NAMESPACE__.${artifactId}</ResourceName>
+			<ResourceVersion>
+				<Major>__MAJOR_VERSION__</Major>
+				<Minor>__MINOR_VERSION__</Minor>
+				<Patch>__PATCH_VERSION__</Patch>
+			</ResourceVersion>
+			
+		</ResourceDescriptor>
+		<ResourceType>Java</ResourceType>
+		<ResourceContainerType></ResourceContainerType>
+		<ResourceContainerTypeVendor>ATT</ResourceContainerTypeVendor>
+		<ResourcePath>/opt/app/dmaap/mmagent</ResourcePath>
+		<ResourceProps>
+			<Tag>process.path</Tag>
+			<Value>/usr/bin:/usr/sbin:${PATH}</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>process.workdir</Tag>
+			<Value>/opt/app/dmaap/mmagent</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>process.libpath</Tag>
+			<Value>${LD_LIBRARY_PATH}</Value>
+		</ResourceProps>
+
+		<!-- The following process.args are for your context, port, and sslport. 
+			NOTE: The "context" argument will set your context. context=/ will run your service under a "root" context. 
+			Port selection is NOT necessary and should NOT be hardcoded if you are choosing to utilize ephemeral ports.
+			If NO port values are given, the AJSC will default to running on ephemeral ports (for both your http port 
+			AND your https port), and your port will be selected for you. -->
+		
+		<!-- Add JMX port -->
+		
+		<ResourceProps>
+			<Tag>jmx.port</Tag>
+			<Value>__JMX_PORT_MRAGENT__</Value>
+		</ResourceProps>
+		
+		
+		<!-- End -->
+		
+		<ResourceProps>
+			<Tag>jvm.version</Tag>
+			<Value>__JAVA_VERSION__</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>jvm.classpath</Tag>
+			<Value>:.:${CLASSPATH}:/opt/app/dmaap/mmagent/etc:/opt/app/dmaap/mmagent/lib/*:</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>jvm.args.pre</Tag>
+			<Value>__PRE_JVM_ARGS__ -XX:MaxPermSize=__MAX_PERM_SIZE__
+				-XX:PermSize=__PERM_SIZE__
+				__INTROSCOPE_VARS__
+				-Djava.net.preferIPv4Stack=true 
+				-DMMAGENTHOME=/opt/app/dmaap/mmagent
+				__POST_JVM_ARGS__
+				__SCLD_OPTIONAL_PLATFORM_FLAG__
+				 -DMMAGENTHOME=/opt/app/dmaap/mmagent
+			</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>jvm.heap.min</Tag>
+			<Value>__MIN_HEAP_SIZE__</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>jvm.heap.max</Tag>
+			<Value>__MAX_HEAP_SIZE__</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>start.class</Tag>
+			<Value>com.att.nsa.dmaapMMAgent.MirrorMakerAgent</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>stdout.redirect</Tag>
+			<Value>log/stdout.log</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>stderr.redirect</Tag>
+			<Value>log/stdout.log</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>validatePID.waitime.seconds</Tag>
+			<Value>__LRM_VALIDATEPID_WAITTIME_SECONDS__</Value>
+		</ResourceProps>
+		<ResourceProps>
+			<Tag>mbean.name</Tag>
+			
+			<Value>JmxInterface:type=DME2</Value>
+		</ResourceProps>
+		<ResourceOSID>msgrtr</ResourceOSID>
+		<ResourceStartType>__LRM_RESOURCE_START_TYPE__</ResourceStartType>
+		<ResourceStartPriority>__LRM_START_PRIORITY__</ResourceStartPriority>
+		<ResourceStartTimeout>__LRM_START_TIMEOUT__</ResourceStartTimeout>
+		<ResourceMinCount>__RESOURCE_MIN_COUNT__</ResourceMinCount>
+		<ResourceMaxCount>__RESOURCE_MAX_COUNT__</ResourceMaxCount>
+		<ResourceMaxRestart>__LRM_RESOURCE_MAX_RESTART__</ResourceMaxRestart>
+		<ResourceHeartBeat>__LRM_RESOURCE_HEARTBEAT__</ResourceHeartBeat>
+		<ResourceHeartBeatFailedLimit>__LRM_RESOURCE_HEARTBEAT_FAILED_LIMIT__</ResourceHeartBeatFailedLimit>
+		<ResourceHeartBeatTimeout>__LRM_RESOURCE_HEARTBEAT_TIMEOUT__</ResourceHeartBeatTimeout>
+		<ResourceShutdownWaitTimeInSecs>__RESOURCE_MANAGER_WAIT_TIME_IN_SECONDS__</ResourceShutdownWaitTimeInSecs>
+		<ResourceRegistration>__LRM_RESOURCE_REGISTRATION__</ResourceRegistration>
+		<GroupName>dmaap</GroupName>
+		<ResourceErrorNotify>
+			<NotifyListEntry>
+				<Loglevel>WARNING</Loglevel>
+				<EmailList>__CLDLRM_WARNING_NOTIFY__</EmailList>
+			</NotifyListEntry>
+			<NotifyListEntry>
+				<Loglevel>SEVERE</Loglevel>
+				<EmailList>__CLDLRM_SEVERE_NOTIFY__</EmailList>
+			</NotifyListEntry>
+		</ResourceErrorNotify>
+	</ns2:ManagedResource>
+</ns2:ManagedResourceList>
