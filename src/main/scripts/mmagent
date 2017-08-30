@@ -1,0 +1,17 @@
+#!/bin/sh
+
+JAVA_HOMES="${INSTALL_ROOT}/opt/app/java/jdk/jdk170 ${INSTALL_ROOT}/opt/app/java/jdk/jdk160"
+for jhome in ${JAVA_HOMES}; do
+   if [ -x "${jhome}"/bin/java ]; then
+      export JAVA_HOME=${jhome}
+   fi
+done
+
+ROOT_DIR=`dirname $0`/..
+ROOT_DIR=`cd $ROOT_DIR; pwd`
+CLASSPATH=${ROOT_DIR}'/lib/*'
+PATH=${JAVA_HOME}/bin:${PATH}
+export JAVA_HOME CLASSPATH PATH
+
+exec java -DMMAGENTHOME=$ROOT_DIR com.att.nsa.dmaapMMAgent.MirrorMakerAgent "$@"
+
