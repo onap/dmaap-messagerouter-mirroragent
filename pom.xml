@@ -36,7 +36,6 @@
 
 	<name>dmaapMMAgent</name>
 	<description>Mirror Maker Agent - Repliaction agent</description>
-	<url>https://github.com/att/dmaap-framework</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -131,7 +130,7 @@
 
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.MirrorMakerAgent</mainClass>
+							<mainClass>com.att.nsa.dmaapMMAgent.MirrorMakerAgent</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
@@ -146,20 +145,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin> 
-			         <groupId>org.apache.maven.plugins</groupId> 
-			         <artifactId>maven-gpg-plugin</artifactId> 
-				     <version>1.5</version> 
-				     <executions> 
-					     <execution> 
-						     <id>sign-artifacts</id> 
-						     <phase>verify</phase> 
-						     <goals> 
-						        <goal>sign</goal> 
-						     </goals> 
-				          </execution> 
-				        </executions> 
-		   </plugin>
 
 		</plugins>
 	</build>

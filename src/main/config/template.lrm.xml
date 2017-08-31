@@ -96,7 +96,7 @@
 		</ResourceProps>
 		<ResourceProps>
 			<Tag>start.class</Tag>
-			<Value>org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.MirrorMakerAgent</Value>
+			<Value>com.att.nsa.dmaapMMAgent.MirrorMakerAgent</Value>
 		</ResourceProps>
 		<ResourceProps>
 			<Tag>stdout.redirect</Tag>

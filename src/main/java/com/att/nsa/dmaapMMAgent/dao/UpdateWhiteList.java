@@ -19,42 +19,26 @@
  *  ECOMP is a trademark and service mark of AT&T Intellectual Property.
  *  
  *******************************************************************************/
- 
-package org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+package com.att.nsa.dmaapMMAgent.dao;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class UpdateWhiteList {
+	String messageID;
+	MirrorMaker updateWhiteList;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+	public MirrorMaker getUpdateWhiteList() {
+		return updateWhiteList;
+	}
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	public void setUpdateWhiteList(MirrorMaker updateWhiteList) {
+		this.updateWhiteList = updateWhiteList;
+	}
+
+	public String getMessageID() {
+		return messageID;
+	}
+
+	public void setMessageID(String messageID) {
+		this.messageID = messageID;
+	}
 }

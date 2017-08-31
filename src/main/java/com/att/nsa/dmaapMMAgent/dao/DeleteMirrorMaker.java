@@ -20,18 +20,18 @@
  *  
  *******************************************************************************/
  
-package org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao;
+package com.att.nsa.dmaapMMAgent.dao;
 
-public class CreateMirrorMaker {
+public class DeleteMirrorMaker {
 	String messageID;
-	MirrorMaker createMirrorMaker;
+	MirrorMaker deleteMirrorMaker;
 
-	public MirrorMaker getCreateMirrorMaker() {
-		return createMirrorMaker;
+	public MirrorMaker getDeleteMirrorMaker() {
+		return deleteMirrorMaker;
 	}
 
-	public void setCreateMirrorMaker(MirrorMaker createMirrorMaker) {
-		this.createMirrorMaker = createMirrorMaker;
+	public void setDeleteMirrorMaker(MirrorMaker deleteMirrorMaker) {
+		this.deleteMirrorMaker = deleteMirrorMaker;
 	}
 
 	public String getMessageID() {
@@ -41,5 +41,4 @@ public class CreateMirrorMaker {
 	public void setMessageID(String messageID) {
 		this.messageID = messageID;
 	}
-
 }

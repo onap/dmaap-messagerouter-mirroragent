@@ -20,14 +20,15 @@
  *  
  *******************************************************************************/
 
-package org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.utils;
+package com.att.nsa.dmaapMMAgent.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import org.apache.log4j.Logger;
-import org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.MirrorMakerAgent;
+
+import com.att.nsa.dmaapMMAgent.MirrorMakerAgent;
 
 public class MirrorMakerProcessHandler {
 	static final Logger logger = Logger.getLogger(MirrorMakerProcessHandler.class);

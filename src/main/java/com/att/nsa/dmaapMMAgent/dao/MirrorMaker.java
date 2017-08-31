@@ -20,27 +20,53 @@
  *  
  *******************************************************************************/
  
-package org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao;
+package com.att.nsa.dmaapMMAgent.dao;
 
-import java.util.ArrayList;
+public class MirrorMaker {
+	public String name;
+	public String consumer;
+	public String producer;
+	public String whitelist;
+	public String status;
 
-public class ListMirrorMaker {
-	String messageID;
-	ArrayList<MirrorMaker> listMirrorMaker;
-
-	public ArrayList<MirrorMaker> getListMirrorMaker() {
-		return listMirrorMaker;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setListMirrorMaker(ArrayList<MirrorMaker> createMirrorMaker) {
-		this.listMirrorMaker = createMirrorMaker;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public String getMessageID() {
-		return messageID;
+	public String getName() {
+		return name;
 	}
 
-	public void setMessageID(String messageID) {
-		this.messageID = messageID;
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	public String getConsumer() {
+		return consumer;
+	}
+
+	public void setConsumer(String consumer) {
+		this.consumer = consumer;
+	}
+
+	public String getProducer() {
+		return producer;
+	}
+
+	public void setProducer(String producer) {
+		this.producer = producer;
+	}
+
+	public String getWhitelist() {
+		return whitelist;
+	}
+
+	public void setWhitelist(String whitelist) {
+		this.whitelist = whitelist;
+	}
+
 }

@@ -20,53 +20,41 @@
  *  
  *******************************************************************************/
  
-package org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao;
+package com.att.nsa.dmaapMMAgent;
 
-public class MirrorMaker {
-	public String name;
-	public String consumer;
-	public String producer;
-	public String whitelist;
-	public String status;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
-	public String getStatus() {
-		return status;
-	}
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+    extends TestCase
+{
+    /**
+     * Create the test case
+     *
+     * @param testName name of the test case
+     */
+    public AppTest( String testName )
+    {
+        super( testName );
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite()
+    {
+        return new TestSuite( AppTest.class );
+    }
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getConsumer() {
-		return consumer;
-	}
-
-	public void setConsumer(String consumer) {
-		this.consumer = consumer;
-	}
-
-	public String getProducer() {
-		return producer;
-	}
-
-	public void setProducer(String producer) {
-		this.producer = producer;
-	}
-
-	public String getWhitelist() {
-		return whitelist;
-	}
-
-	public void setWhitelist(String whitelist) {
-		this.whitelist = whitelist;
-	}
-
+    /**
+     * Rigourous Test :-)
+     */
+    public void testApp()
+    {
+        assertTrue( true );
+    }
 }

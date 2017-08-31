@@ -20,7 +20,7 @@
  *  
  *******************************************************************************/
 
-package org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent;
+package com.att.nsa.dmaapMMAgent;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -38,14 +38,14 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.jasypt.util.text.BasicTextEncryptor;
-import org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao.CreateMirrorMaker;
-import org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao.DeleteMirrorMaker;
-import org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao.ListMirrorMaker;
-import org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao.MirrorMaker;
-import org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao.UpdateMirrorMaker;
-import org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.dao.UpdateWhiteList;
-import org.onap.dmaap.messagerouter.mirroragent.nsa.dmaapMMAgent.utils.MirrorMakerProcessHandler;
 
+import com.att.nsa.dmaapMMAgent.dao.CreateMirrorMaker;
+import com.att.nsa.dmaapMMAgent.dao.DeleteMirrorMaker;
+import com.att.nsa.dmaapMMAgent.dao.ListMirrorMaker;
+import com.att.nsa.dmaapMMAgent.dao.MirrorMaker;
+import com.att.nsa.dmaapMMAgent.dao.UpdateMirrorMaker;
+import com.att.nsa.dmaapMMAgent.dao.UpdateWhiteList;
+import com.att.nsa.dmaapMMAgent.utils.MirrorMakerProcessHandler;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.sun.org.apache.xerces.internal.impl.dtd.models.CMAny;
