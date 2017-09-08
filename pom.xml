@@ -34,7 +34,7 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<name>dmaapMMAgent</name>
+	<name>dmaap-messagerouter-mirroragent</name>
 	<description>Mirror Maker Agent - Repliaction agent</description>
 
 	<properties>
