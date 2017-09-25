@@ -49,6 +49,7 @@
 	    <!-- Note: This list should match jacoco-maven-plugin's exclusion list below -->
 	    <sonar.exclusions>**/gen/**,**/generated-sources/**,**/yang-gen**,**/pax/**</sonar.exclusions>
 	    <sitePath>/content/sites/site/org/onap/dmaap/${project.artifactId}/${project.version}</sitePath>
+		<nexusproxy>https://nexus.onap.org</nexusproxy>
 	</properties>
 	
 	<distributionManagement>
