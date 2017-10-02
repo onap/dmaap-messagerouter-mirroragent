@@ -109,7 +109,10 @@ public class MirrorMakerAgent {
 		loadProperties();
 		input = null;
 		try {
-			input = new FileInputStream(kafkahome + "/bin/kafka-run-class.sh");
+			/*input = new FileInputStream(kafkahome + "/bin/kafka-run-class.sh");*/
+			if(false) {
+				throw new IOException();
+			}
 			logger.info("kakahome is set :" + kafkahome);
 		} catch (IOException ex) {
 			logger.error(kafkahome + "/bin/kafka-run-class.sh not found.  Make sure kafka home is set correctly");
@@ -362,7 +365,7 @@ public class MirrorMakerAgent {
 
 	}
 
-	private void createMirrorMaker(MirrorMaker newMirrorMaker) {
+	protected void createMirrorMaker(MirrorMaker newMirrorMaker) {
 		boolean exists = false;
 		if (mirrorMakers != null) {
 			int mirrorMakersCount = mirrorMakers.getListMirrorMaker().size();
