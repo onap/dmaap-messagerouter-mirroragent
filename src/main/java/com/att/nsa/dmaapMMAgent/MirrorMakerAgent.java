@@ -95,7 +95,7 @@ public class MirrorMakerAgent {
 			input = new FileInputStream(mmagenthome + "/etc/mmagent.config");
 			logger.info("mmagenthome is set :" + mmagenthome + " loading properties at /etc/mmagent.config");
 		} catch (IOException ex) {
-			logger.error(mmagenthome + "/etc/mmagent.config not found.  Set -DMMAGENTHOME and check the config file");
+			logger.error(mmagenthome + "/etc/mmagent.config not found.  Set -DMMAGENTHOME and check the config file" + ex);
 			return false;
 		} finally {
 			if (input != null) {
