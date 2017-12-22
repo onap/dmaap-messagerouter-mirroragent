@@ -103,7 +103,6 @@ public class MirrorMakerAgent {
 					input.close();
 				} catch (IOException e) {
 					logger.error("IOException" + e);
-					e.printStackTrace();
 				}
 			}
 		}
