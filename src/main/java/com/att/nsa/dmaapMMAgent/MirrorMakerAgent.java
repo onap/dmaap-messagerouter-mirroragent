@@ -115,7 +115,7 @@ public class MirrorMakerAgent {
 			}
 			logger.info("kakahome is set :" + kafkahome);
 		} catch (IOException ex) {
-			logger.error(kafkahome + "/bin/kafka-run-class.sh not found.  Make sure kafka home is set correctly");
+			logger.error(kafkahome + "/bin/kafka-run-class.sh not found.  Make sure kafka home is set correctly" + ex);
 			return false;
 		} finally {
 			if (input != null) {
