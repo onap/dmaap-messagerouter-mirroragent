@@ -380,7 +380,7 @@ public class MirrorMakerAgent {
 			}
 		}
 		logger.info("Adding new MirrorMaker:" + newMirrorMaker.name);
-		if (exists == false && mirrorMakers != null) {
+		if (!exists && mirrorMakers != null) {
 			mirrorMakers.getListMirrorMaker().add(newMirrorMaker);
 		} else if (exists == false && mirrorMakers == null) {
 			mirrorMakers = new ListMirrorMaker();
