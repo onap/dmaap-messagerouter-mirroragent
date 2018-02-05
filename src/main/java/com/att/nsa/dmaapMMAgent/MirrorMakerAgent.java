@@ -152,6 +152,7 @@ public class MirrorMakerAgent {
 			}
 			input = new FileInputStream(mmagenthome + "/etc/" + agentName + propName + ".properties");
 		} catch (IOException ex) {
+			logger.error(" IOException will be handled " + ex);
 			try {
 				input = new FileInputStream(mmagenthome + "/etc/" + propName + ".properties");
 				Properties prop = new Properties();
