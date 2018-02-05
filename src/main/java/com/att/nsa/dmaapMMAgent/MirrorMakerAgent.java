@@ -181,7 +181,7 @@ public class MirrorMakerAgent {
 					out.close();
 				} catch (IOException e) {
 					e.printStackTrace();
-					logger.error("IOException" + e);
+					logger.error("Exception is : "+e);
 				}
 			}
 		}
