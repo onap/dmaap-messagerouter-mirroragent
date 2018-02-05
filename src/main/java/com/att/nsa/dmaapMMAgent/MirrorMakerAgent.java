@@ -168,6 +168,7 @@ public class MirrorMakerAgent {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.error(" Exception Occered " + e);
 			}
 		} finally {
 			if (input != null) {
