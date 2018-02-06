@@ -446,7 +446,7 @@ public class MirrorMakerAgent {
 					Thread.currentThread().interrupt();
 				}
 			} catch (IOException ex) {
-				ex.printStackTrace();
+				logger.error(" IOException Occered " + ex);
 			} finally {
 				if (out != null) {
 					try {
