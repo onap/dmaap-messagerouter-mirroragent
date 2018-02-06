@@ -175,6 +175,7 @@ public class MirrorMakerAgent {
 					input.close();
 				} catch (IOException e) {
 					e.printStackTrace();
+					logger.error(" IOException Occered " + e);
 				}
 			}
 			if (out != null) {
