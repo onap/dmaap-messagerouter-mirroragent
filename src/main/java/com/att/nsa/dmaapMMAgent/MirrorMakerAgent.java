@@ -36,6 +36,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.jasypt.util.text.BasicTextEncryptor;
 
@@ -441,6 +442,8 @@ public class MirrorMakerAgent {
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
+					logger.log(Level.WARN, "Interrupted!", e);
+					Thread.currentThread().interrupt();
 				}
 			} catch (IOException ex) {
 				ex.printStackTrace();
