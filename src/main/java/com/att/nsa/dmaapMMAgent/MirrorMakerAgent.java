@@ -52,7 +52,7 @@ import com.sun.org.apache.xerces.internal.impl.dtd.models.CMAny;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 public class MirrorMakerAgent {
-	static final Logger logger = Logger.getLogger(MirrorMakerAgent.class);
+	static final jdk.internal.instrumentation.Logger logger = Logger.getLogger(MirrorMakerAgent.class);
 	Properties mirrorMakerProperties = new Properties();
 	ListMirrorMaker mirrorMakers = null;
 	String mmagenthome = "";
@@ -405,7 +405,7 @@ public class MirrorMakerAgent {
 				try {
 					out.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error("Exception at createMirrorMaker"+ e);
 				}
 			}
 		}
