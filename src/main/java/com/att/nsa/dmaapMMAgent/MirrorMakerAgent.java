@@ -166,7 +166,7 @@ public class MirrorMakerAgent {
 				prop.store(out, "");
 
 			} catch (Exception e) {
-				e.printStackTrace();
+				logger.error("Exception at checkPropertiesFile " +e);
 			}
 		} finally {
 			if (input != null) {
@@ -380,7 +380,7 @@ public class MirrorMakerAgent {
 			}
 		}
 		logger.info("Adding new MirrorMaker:" + newMirrorMaker.name);
-		if (!exists && mirrorMakers != null) {
+		if (exists == false && mirrorMakers != null) {
 			mirrorMakers.getListMirrorMaker().add(newMirrorMaker);
 		} else if (exists == false && mirrorMakers == null) {
 			mirrorMakers = new ListMirrorMaker();
