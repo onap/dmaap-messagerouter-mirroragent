@@ -385,7 +385,7 @@ public class MirrorMakerAgent {
 		} else if (exists == false && mirrorMakers == null) {
 			mirrorMakers = new ListMirrorMaker();
 			ArrayList<MirrorMaker> list = mirrorMakers.getListMirrorMaker();
-			list = new ArrayList<MirrorMaker>();
+			list = new ArrayList();
 			list.add(newMirrorMaker);
 			mirrorMakers.setListMirrorMaker(list);
 		}
