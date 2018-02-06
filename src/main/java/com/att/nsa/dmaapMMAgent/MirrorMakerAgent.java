@@ -284,6 +284,7 @@ public class MirrorMakerAgent {
 			return response;
 
 		} catch (Exception e) {
+			logger.error(" Exception Occered " + e);
 			return "ERROR:" + e.getLocalizedMessage();
 		}
 	}
