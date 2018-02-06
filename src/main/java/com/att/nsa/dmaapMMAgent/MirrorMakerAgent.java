@@ -347,7 +347,7 @@ public class MirrorMakerAgent {
 					} catch (Exception ex) {
 						connectionattempt++;
 						if (connectionattempt > 5) {
-							logger.info("Can't connect to the topic, mmagent shutting down , " + topicMessage);
+							logger.info("Can't connect to the topic, mmagent shutting down , " + topicMessage + ex);
 							return;
 						}
 						logger.info("Can't connect to the topic, " + topicMessage + " Retrying " + connectionattempt
