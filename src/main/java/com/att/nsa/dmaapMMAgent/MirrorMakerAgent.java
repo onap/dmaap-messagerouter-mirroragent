@@ -254,6 +254,7 @@ public class MirrorMakerAgent {
 				return topicMessage[0];
 			}
 		} catch (Exception e) {
+			logger.error(" Exception Occered " + e);
 			return "ERROR:" + e.getMessage() + " Server Response is:" + response;
 		}
 		return null;
