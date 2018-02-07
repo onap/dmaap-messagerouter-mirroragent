@@ -174,7 +174,7 @@ public class MirrorMakerAgent {
 				try {
 					input.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error("Exception occurred is " +e);
 				}
 			}
 			if (out != null) {
@@ -362,7 +362,7 @@ public class MirrorMakerAgent {
 
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Exception is : " +e);
 		}
 
 	}
