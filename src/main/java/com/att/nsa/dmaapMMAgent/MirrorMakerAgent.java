@@ -494,7 +494,7 @@ public class MirrorMakerAgent {
 					Thread.currentThread().interrupt();
 				}
 			} catch (IOException ex) {
-				ex.printStackTrace();
+				logger.error("Exception at updateWhiteList : " + ex);
 			} finally {
 				if (out != null) {
 					try {
