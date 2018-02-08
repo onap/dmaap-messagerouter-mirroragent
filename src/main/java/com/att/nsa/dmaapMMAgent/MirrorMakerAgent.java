@@ -490,6 +490,8 @@ public class MirrorMakerAgent {
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
+					logger.log(Level.WARN, "Interrupted!", e);
+					Thread.currentThread().interrupt();
 				}
 			} catch (IOException ex) {
 				ex.printStackTrace();
