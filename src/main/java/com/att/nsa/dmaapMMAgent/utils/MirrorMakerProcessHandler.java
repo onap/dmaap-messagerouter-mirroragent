@@ -141,7 +141,7 @@ public class MirrorMakerProcessHandler {
 								// System.out.println(line);
 							}
 						} catch (Exception anExc) {
-							anExc.printStackTrace();
+							logger.error("Exception at startMirrorMaker method else part run method:" + anExc.getMessage());
 						}
 					}
 				}.start();
