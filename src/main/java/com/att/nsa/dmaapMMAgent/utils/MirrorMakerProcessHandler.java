@@ -150,7 +150,7 @@ public class MirrorMakerProcessHandler {
 			logger.info("Mirror Maker " + agentName + " Started" + " WhiteListing:" + whitelist);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Exception at startMirrorMaker method:" + e.getMessage());
 		}
 	}
 }
