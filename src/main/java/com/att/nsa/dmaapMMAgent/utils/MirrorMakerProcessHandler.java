@@ -119,7 +119,7 @@ public class MirrorMakerProcessHandler {
 								// System.out.println(line);
 							}
 						} catch (Exception anExc) {
-							anExc.printStackTrace();
+							logger.error("Error at startMirrorMaker method:" + anExc.getMessage());
 						}
 					}
 				}.start();
