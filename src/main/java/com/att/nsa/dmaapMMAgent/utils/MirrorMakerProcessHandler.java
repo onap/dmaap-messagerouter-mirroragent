@@ -92,7 +92,7 @@ public class MirrorMakerProcessHandler {
 
 			logger.info("Mirror Maker " + agentname + " Stopped");
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error at stopMirrorMaker method:" + e.getMessage());
 		}
 
 	}
