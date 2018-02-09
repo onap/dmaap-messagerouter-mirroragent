@@ -60,7 +60,7 @@ public class MirrorMakerProcessHandler {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error at checkMirrorMakerProcess method:" + e.getMessage());
 		}
 		return false;
 	}
