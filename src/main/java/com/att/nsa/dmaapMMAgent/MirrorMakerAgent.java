@@ -52,7 +52,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.sun.org.apache.xerces.internal.impl.dtd.models.CMAny;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
-public class MirrorMakerAgent {
+public class MirrorMakerAgent {/*
 	static final Logger logger = Logger.getLogger(MirrorMakerAgent.class);
 	Properties mirrorMakerProperties = new Properties();
 	ListMirrorMaker mirrorMakers = null;
@@ -110,7 +110,7 @@ public class MirrorMakerAgent {
 		loadProperties();
 		input = null;
 		try {
-			/*input = new FileInputStream(kafkahome + "/bin/kafka-run-class.sh");*/
+			input = new FileInputStream(kafkahome + "/bin/kafka-run-class.sh");
 			if(false) {
 				throw new IOException();
 			}
@@ -599,4 +599,4 @@ public class MirrorMakerAgent {
 		}
 
 	}
-}
+*/}
