@@ -26,14 +26,14 @@ import java.util.ArrayList;
 
 public class ListMirrorMaker {
 	String messageID;
-	ArrayList<MirrorMaker> listMirrorMaker;
+	ArrayList<MirrorMaker> listMirrorMaker1;
 
 	public ArrayList<MirrorMaker> getListMirrorMaker() {
-		return listMirrorMaker;
+		return listMirrorMaker1;
 	}
 
 	public void setListMirrorMaker(ArrayList<MirrorMaker> createMirrorMaker) {
-		this.listMirrorMaker = createMirrorMaker;
+		this.listMirrorMaker1 = createMirrorMaker;
 	}
 
 	public String getMessageID() {
