@@ -109,6 +109,7 @@ public class MirrorMakerProcessHandler {
 						+ "_MMaker.log";
 				final Process process = rt.exec(args);
 				new Thread() {
+					@Override
 					public void run() {
 						try {
 							InputStream is = process.getInputStream();
