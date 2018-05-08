@@ -24,14 +24,14 @@ package com.att.nsa.dmaapMMAgent.dao;
 
 public class DeleteMirrorMaker {
 	String messageID;
-	MirrorMaker deleteMirrorMaker;
+	MirrorMaker delMirrorMaker;
 
 	public MirrorMaker getDeleteMirrorMaker() {
-		return deleteMirrorMaker;
+		return delMirrorMaker;
 	}
 
 	public void setDeleteMirrorMaker(MirrorMaker deleteMirrorMaker) {
-		this.deleteMirrorMaker = deleteMirrorMaker;
+		this.delMirrorMaker = deleteMirrorMaker;
 	}
 
 	public String getMessageID() {
