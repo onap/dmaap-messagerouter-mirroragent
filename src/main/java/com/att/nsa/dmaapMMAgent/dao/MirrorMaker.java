@@ -27,7 +27,7 @@ public class MirrorMaker {
 	public String consumer;
 	public String producer;
 	public String whitelist;
-	public String status;
+	private String status;
 
 	public String getStatus() {
 		return status;
