@@ -25,7 +25,7 @@ package com.att.nsa.dmaapMMAgent.dao;
 public class MirrorMaker {
 	public String name;
 	public String consumer;
-	public String producer;
+	private String producer;
 	public String whitelist;
 	public String status;
 
