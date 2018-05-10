@@ -23,7 +23,7 @@
 package com.att.nsa.dmaapMMAgent.dao;
 
 public class MirrorMaker {
-	public String name;
+	private String name;
 	public String consumer;
 	public String producer;
 	public String whitelist;
