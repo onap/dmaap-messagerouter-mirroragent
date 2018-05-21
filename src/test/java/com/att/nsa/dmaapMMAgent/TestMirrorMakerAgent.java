@@ -24,13 +24,14 @@ package com.att.nsa.dmaapMMAgent;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -48,7 +49,10 @@ public class TestMirrorMakerAgent {
 	MirrorMaker mirrorMaker2 = new MirrorMaker();
 	ArrayList<MirrorMaker> listsMirrorMaker = new ArrayList<MirrorMaker>();
 	Gson g = new Gson();
-	MirrorMakerAgent agent = spy(new MirrorMakerAgent());
+	@InjectMocks
+	private MirrorMakerAgent agent = spy(new MirrorMakerAgent());
+	@Mock
+	private TopicUtil topicUtil;
 
 	@Before
 	public void setUp() {
@@ -69,16 +73,12 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadAgentTopics() {
-		when(agent.subscribeTopic("60000")).thenReturn(null);
 		agent.exitLoop = true;
 		agent.readAgentTopic();
 	}
 
 	@Test
 	public void testReadCreateMirrorMaker() {
-		when(agent.publishTopic(
-				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
-						.thenReturn(null);
 		String topicMessage = "{ messageID:\"test\", createMirrorMaker: {   name:\"test\",   consumer:\"test\",  producer:\"test\"}}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		agent.readAgent(object, topicMessage);
@@ -87,9 +87,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadUpdateMirrorMaker() {
-		when(agent.publishTopic(
-				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
-						.thenReturn(null);
 		String topicMessage = "{ messageID:\"test\", updateMirrorMaker: {   name:\"test\",   consumer:\"test\",  producer:\"test\"}}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		testReadCreateMirrorMaker();
@@ -99,9 +96,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadDeleteMirrorMaker() {
-		when(agent.publishTopic(
-				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
-						.thenReturn(null);
 		String topicMessage = "{ messageID:\"test\", deleteMirrorMaker: {   name:\"test\",   consumer:\"test\",  producer:\"test\",  whitelist:\"test\",status:\"test\" }}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		testReadCreateMirrorMaker();
@@ -111,9 +105,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadListMirrorMaker() {
-		when(agent.publishTopic(
-				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
-						.thenReturn(null);
 		String topicMessage = "{ messageID:\"test\", listAllMirrorMaker: {   name:\"test\",   consumer:\"test\",  producer:\"test\",  whitelist:\"test\",status:\"test\" }}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		testReadCreateMirrorMaker();
@@ -123,9 +114,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadWhitelistMirrorMaker() {
-		when(agent.publishTopic(
-				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
-						.thenReturn(null);
 		String topicMessage = "{ messageID:\"test\", updateWhiteList: {   name:\"test\",   consumer:\"test\",  producer:\"test\",  whitelist:\"test\",status:\"test\" }}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		testReadCreateMirrorMaker();
