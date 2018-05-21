@@ -50,7 +50,7 @@ public class TestMirrorMakerAgent {
 	ArrayList<MirrorMaker> listsMirrorMaker = new ArrayList<MirrorMaker>();
 	Gson g = new Gson();
 	@InjectMocks
-	private MirrorMakerAgent agent = spy(new MirrorMakerAgent());
+	private MirrorMakerAgent agent;
 	@Mock
 	private TopicUtil topicUtil;
 
@@ -73,12 +73,14 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadAgentTopics() {
+		
 		agent.exitLoop = true;
 		agent.readAgentTopic();
 	}
 
 	@Test
 	public void testReadCreateMirrorMaker() {
+		
 		String topicMessage = "{ messageID:\"test\", createMirrorMaker: {   name:\"test\",   consumer:\"test\",  producer:\"test\"}}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		agent.readAgent(object, topicMessage);
@@ -87,6 +89,7 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadUpdateMirrorMaker() {
+		
 		String topicMessage = "{ messageID:\"test\", updateMirrorMaker: {   name:\"test\",   consumer:\"test\",  producer:\"test\"}}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		testReadCreateMirrorMaker();
@@ -96,6 +99,7 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadDeleteMirrorMaker() {
+		
 		String topicMessage = "{ messageID:\"test\", deleteMirrorMaker: {   name:\"test\",   consumer:\"test\",  producer:\"test\",  whitelist:\"test\",status:\"test\" }}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		testReadCreateMirrorMaker();
@@ -105,6 +109,7 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadListMirrorMaker() {
+		
 		String topicMessage = "{ messageID:\"test\", listAllMirrorMaker: {   name:\"test\",   consumer:\"test\",  producer:\"test\",  whitelist:\"test\",status:\"test\" }}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		testReadCreateMirrorMaker();
@@ -114,6 +119,7 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadWhitelistMirrorMaker() {
+		
 		String topicMessage = "{ messageID:\"test\", updateWhiteList: {   name:\"test\",   consumer:\"test\",  producer:\"test\",  whitelist:\"test\",status:\"test\" }}";
 		LinkedTreeMap<?, ?> object = g.fromJson(topicMessage, LinkedTreeMap.class);
 		testReadCreateMirrorMaker();
