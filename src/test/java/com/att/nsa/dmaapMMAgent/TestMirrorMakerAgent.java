@@ -31,8 +31,6 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -43,16 +41,14 @@ import com.google.gson.internal.LinkedTreeMap;
 
 @RunWith(PowerMockRunner.class)
 public class TestMirrorMakerAgent {
+
 	MirrorMakerAgent mirrorMakerAgent = new MirrorMakerAgent();
 	ListMirrorMaker listMirrorMaker = new ListMirrorMaker();
 	MirrorMaker mirrorMaker = new MirrorMaker();
 	MirrorMaker mirrorMaker2 = new MirrorMaker();
 	ArrayList<MirrorMaker> listsMirrorMaker = new ArrayList<MirrorMaker>();
 	Gson g = new Gson();
-	@Mock
-	ListMirrorMaker mirrorMakers;
-	@InjectMocks
-	MirrorMakerAgent agent;
+	MirrorMakerAgent agent = spy(new MirrorMakerAgent());
 
 	@Before
 	public void setUp() {
@@ -73,7 +69,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadAgentTopics() {
-		MirrorMakerAgent agent = spy(new MirrorMakerAgent());
 		when(agent.subscribeTopic("60000")).thenReturn(null);
 		agent.exitLoop = true;
 		agent.readAgentTopic();
@@ -81,7 +76,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadCreateMirrorMaker() {
-		agent = spy(new MirrorMakerAgent());
 		when(agent.publishTopic(
 				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
 						.thenReturn(null);
@@ -93,7 +87,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadUpdateMirrorMaker() {
-		agent = spy(new MirrorMakerAgent());
 		when(agent.publishTopic(
 				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
 						.thenReturn(null);
@@ -106,7 +99,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadDeleteMirrorMaker() {
-		agent = spy(new MirrorMakerAgent());
 		when(agent.publishTopic(
 				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
 						.thenReturn(null);
@@ -119,7 +111,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadListMirrorMaker() {
-		agent = spy(new MirrorMakerAgent());
 		when(agent.publishTopic(
 				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
 						.thenReturn(null);
@@ -132,7 +123,6 @@ public class TestMirrorMakerAgent {
 
 	@Test
 	public void testReadWhitelistMirrorMaker() {
-		agent = spy(new MirrorMakerAgent());
 		when(agent.publishTopic(
 				"{\"messageID\":\"test\",\"listMirrorMaker\":[{\"name\":\"test\",\"consumer\":\"test\",\"producer\":\"test\",\"status\":\"STOPPED\"}]}"))
 						.thenReturn(null);
