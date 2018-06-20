@@ -19,7 +19,6 @@
  *  ECOMP is a trademark and service mark of AT&T Intellectual Property.
  *  
  *******************************************************************************/
- 
 package com.att.nsa.dmaapMMAgent.dao;
 
 public class UpdateMirrorMaker {

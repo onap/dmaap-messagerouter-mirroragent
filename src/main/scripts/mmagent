@@ -1,6 +1,6 @@
 #!/bin/sh
 
-JAVA_HOMES="${INSTALL_ROOT}/opt/app/java/jdk/jdk170 ${INSTALL_ROOT}/opt/app/java/jdk/jdk160"
+JAVA_HOMES="${INSTALL_ROOT}/opt/app/java/jdk/jdk170 ${INSTALL_ROOT}/opt/app/java/jdk/jdk180"
 for jhome in ${JAVA_HOMES}; do
    if [ -x "${jhome}"/bin/java ]; then
       export JAVA_HOME=${jhome}
