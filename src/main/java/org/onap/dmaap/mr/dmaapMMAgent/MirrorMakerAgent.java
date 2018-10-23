@@ -19,7 +19,7 @@
  *  ECOMP is a trademark and service mark of AT&T Intellectual Property.
  *  
  *******************************************************************************/
-package com.att.nsa.dmaapMMAgent;
+package org.onap.dmaap.mr.dmaapMMAgent;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -38,13 +38,13 @@ import java.util.Properties;
 //import org.apache.log4j.Logger;
 //import org.jasypt.util.text.BasicTextEncryptor;
 
-import com.att.nsa.dmaapMMAgent.dao.CreateMirrorMaker;
-import com.att.nsa.dmaapMMAgent.dao.DeleteMirrorMaker;
-import com.att.nsa.dmaapMMAgent.dao.ListMirrorMaker;
-import com.att.nsa.dmaapMMAgent.dao.MirrorMaker;
-import com.att.nsa.dmaapMMAgent.dao.UpdateMirrorMaker;
-import com.att.nsa.dmaapMMAgent.dao.UpdateWhiteList;
-import com.att.nsa.dmaapMMAgent.utils.MirrorMakerProcessHandler;
+import org.onap.dmaap.mr.dmaapMMAgent.dao.CreateMirrorMaker;
+import org.onap.dmaap.mr.dmaapMMAgent.dao.DeleteMirrorMaker;
+import org.onap.dmaap.mr.dmaapMMAgent.dao.ListMirrorMaker;
+import org.onap.dmaap.mr.dmaapMMAgent.dao.MirrorMaker;
+import org.onap.dmaap.mr.dmaapMMAgent.dao.UpdateMirrorMaker;
+import org.onap.dmaap.mr.dmaapMMAgent.dao.UpdateWhiteList;
+import org.onap.dmaap.mr.dmaapMMAgent.utils.MirrorMakerProcessHandler;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.internal.LinkedTreeMap;

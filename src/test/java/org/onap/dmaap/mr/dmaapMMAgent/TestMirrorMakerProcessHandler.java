@@ -20,31 +20,49 @@
  *  
  *******************************************************************************/
 
-package com.att.nsa.dmaapMMAgent.dao;
+package org.onap.dmaap.mr.dmaapMMAgent;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
-import org.junit.After;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.modules.junit4.PowerMockRunner;
 
-public class TestListMirrorMaker {
-	
-	ListMirrorMaker listMirrorMaker = new ListMirrorMaker();
-	MirrorMaker mirrorMaker = new MirrorMaker();
-	ArrayList<MirrorMaker> listsMirrorMaker = new ArrayList<MirrorMaker>();
+import  org.onap.dmaap.mr.dmaapMMAgent.utils.MirrorMakerProcessHandler;
+
+//@RunWith(PowerMockRunner.class)
+public class TestMirrorMakerProcessHandler {/*
+
+	@Test
+	public void testCheckMirrorMakerProcess() {
+		Boolean status=false;
+		try {
+			status = MirrorMakerProcessHandler.checkMirrorMakerProcess("AgentName",false,null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+		}
+	}
 	
 	@Test
-	public void testDeleteMirrorMaker() {
-		assertNotNull(mirrorMaker);
-		assertNotNull(listMirrorMaker);
-		
-		listMirrorMaker.setMessageID("messageID");
-		listMirrorMaker.setListMirrorMaker(listsMirrorMaker);
-		
-		assertEquals("messageID",listMirrorMaker.getMessageID());
-		assertNotNull(listMirrorMaker.getListMirrorMaker());
+	public void testStopMirrorMaker() {
+		Boolean status=false;
+		MirrorMakerProcessHandler.stopMirrorMaker("AgentName");
+		try {
+			status = MirrorMakerProcessHandler.checkMirrorMakerProcess("AgentName",false,null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+		}
+	}
+	
+	@Test
+	public void testStartMirrorMaker() {
+		Boolean status=false;
+		MirrorMakerProcessHandler.startMirrorMaker("mmagenthome", "kafkaHome", "agentName", "consumerConfig", "producerConfig", 1,"whitelist");
+		try {
+			status = MirrorMakerProcessHandler.checkMirrorMakerProcess("AgentName",false,null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+		}
 	}
 
-}
+*/}

@@ -20,27 +20,31 @@
  *  
  *******************************************************************************/
 
-package com.att.nsa.dmaapMMAgent.dao;
+package org.onap.dmaap.mr.dmaapMMAgent.dao;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
+import org.junit.After;
 import org.junit.Test;
 
-public class TestUpdateWhiteList {
-
-	UpdateWhiteList updateWhiteList = new UpdateWhiteList();
+public class TestListMirrorMaker {
+	
+	ListMirrorMaker listMirrorMaker = new ListMirrorMaker();
 	MirrorMaker mirrorMaker = new MirrorMaker();
+	ArrayList<MirrorMaker> listsMirrorMaker = new ArrayList<MirrorMaker>();
 	
 	@Test
-	public void testUpdateMirrorMaker() {
+	public void testDeleteMirrorMaker() {
 		assertNotNull(mirrorMaker);
-		assertNotNull(updateWhiteList);
+		assertNotNull(listMirrorMaker);
 		
-		updateWhiteList.setMessageID("messageID");
-		updateWhiteList.setUpdateWhiteList(mirrorMaker);
+		listMirrorMaker.setMessageID("messageID");
+		listMirrorMaker.setListMirrorMaker(listsMirrorMaker);
 		
-		assertEquals("messageID",updateWhiteList.getMessageID());
-		assertNotNull(updateWhiteList.getUpdateWhiteList());
+		assertEquals("messageID",listMirrorMaker.getMessageID());
+		assertNotNull(listMirrorMaker.getListMirrorMaker());
 	}
 
 }

@@ -19,25 +19,71 @@
  *  ECOMP is a trademark and service mark of AT&T Intellectual Property.
  *  
  *******************************************************************************/
-package com.att.nsa.dmaapMMAgent.dao;
+package org.onap.dmaap.mr.dmaapMMAgent.dao;
 
-public class DeleteMirrorMaker {
-	String messageID;
-	MirrorMaker deleteMirrorMaker;
+public class MirrorMaker {
+	public String name;
+	public String consumer;
+	public String producer;
+	public String whitelist;
+	public String status;
+	public int numStreams=1;
+	public boolean enablelogCheck = false;
 
-	public MirrorMaker getDeleteMirrorMaker() {
-		return deleteMirrorMaker;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setDeleteMirrorMaker(MirrorMaker deleteMirrorMaker) {
-		this.deleteMirrorMaker = deleteMirrorMaker;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public String getMessageID() {
-		return messageID;
+	public String getName() {
+		return name;
 	}
 
-	public void setMessageID(String messageID) {
-		this.messageID = messageID;
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	public String getConsumer() {
+		return consumer;
+	}
+
+	public void setConsumer(String consumer) {
+		this.consumer = consumer;
+	}
+
+	public String getProducer() {
+		return producer;
+	}
+
+	public void setProducer(String producer) {
+		this.producer = producer;
+	}
+
+	public String getWhitelist() {
+		return whitelist;
+	}
+
+	public void setWhitelist(String whitelist) {
+		this.whitelist = whitelist;
+	}
+
+	public int getNumStreams() {
+		return numStreams;
+	}
+
+	public void setNumStreams(int numStreams) {
+		this.numStreams = numStreams;
+	}
+
+	public boolean isEnablelogCheck() {
+		return enablelogCheck;
+	}
+
+	public void setEnablelogCheck(boolean enablelogCheck) {
+		this.enablelogCheck = enablelogCheck;
+	}
+
 }

@@ -19,25 +19,29 @@
  *  ECOMP is a trademark and service mark of AT&T Intellectual Property.
  *  
  *******************************************************************************/
-package com.att.nsa.dmaapMMAgent.dao;
 
-public class UpdateMirrorMaker {
-	String messageID;
-	MirrorMaker updateMirrorMaker;
+package org.onap.dmaap.mr.dmaapMMAgent.dao;
 
-	public MirrorMaker getUpdateMirrorMaker() {
-		return updateMirrorMaker;
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+
+public class TestDeleteMirrorMaker {
+
+	DeleteMirrorMaker deleteMirrorMaker = new DeleteMirrorMaker();
+	MirrorMaker mirrorMaker = new MirrorMaker();
+	
+	@Test
+	public void testDeleteMirrorMaker() {
+		assertNotNull(mirrorMaker);
+		assertNotNull(deleteMirrorMaker);
+		
+		deleteMirrorMaker.setMessageID("messageID");
+		deleteMirrorMaker.setDeleteMirrorMaker(mirrorMaker);
+		
+		assertEquals("messageID",deleteMirrorMaker.getMessageID());
+		assertNotNull(deleteMirrorMaker.getDeleteMirrorMaker());
 	}
 
-	public void setUpdateMirrorMaker(MirrorMaker updateMirrorMaker) {
-		this.updateMirrorMaker = updateMirrorMaker;
-	}
-
-	public String getMessageID() {
-		return messageID;
-	}
-
-	public void setMessageID(String messageID) {
-		this.messageID = messageID;
-	}
 }

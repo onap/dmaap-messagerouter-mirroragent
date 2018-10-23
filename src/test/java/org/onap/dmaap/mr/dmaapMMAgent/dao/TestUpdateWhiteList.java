@@ -20,29 +20,27 @@
  *  
  *******************************************************************************/
 
-package com.att.nsa.dmaapMMAgent.dao;
+package org.onap.dmaap.mr.dmaapMMAgent.dao;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.att.nsa.dmaapMMAgent.dao.CreateMirrorMaker;
-import com.att.nsa.dmaapMMAgent.dao.MirrorMaker;
+public class TestUpdateWhiteList {
 
-public class TestCreateMirrorMaker {
-	
-	CreateMirrorMaker createMirrorMaker = new CreateMirrorMaker();
+	UpdateWhiteList updateWhiteList = new UpdateWhiteList();
 	MirrorMaker mirrorMaker = new MirrorMaker();
 	
 	@Test
-	public void testCreateMirrorMaker() {
+	public void testUpdateMirrorMaker() {
 		assertNotNull(mirrorMaker);
-		assertNotNull(createMirrorMaker);
+		assertNotNull(updateWhiteList);
 		
-		createMirrorMaker.setMessageID("messageID");
-		createMirrorMaker.setCreateMirrorMaker(mirrorMaker);
+		updateWhiteList.setMessageID("messageID");
+		updateWhiteList.setUpdateWhiteList(mirrorMaker);
 		
-		assertEquals("messageID",createMirrorMaker.getMessageID());
-		assertNotNull(createMirrorMaker.getCreateMirrorMaker());
+		assertEquals("messageID",updateWhiteList.getMessageID());
+		assertNotNull(updateWhiteList.getUpdateWhiteList());
 	}
+
 }

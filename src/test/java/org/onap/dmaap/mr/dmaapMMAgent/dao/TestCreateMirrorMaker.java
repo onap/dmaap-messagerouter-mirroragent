@@ -20,49 +20,29 @@
  *  
  *******************************************************************************/
 
-package com.att.nsa.dmaapMMAgent;
+package org.onap.dmaap.mr.dmaapMMAgent.dao;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.modules.junit4.PowerMockRunner;
 
-import com.att.nsa.dmaapMMAgent.utils.MirrorMakerProcessHandler;
+import org.onap.dmaap.mr.dmaapMMAgent.dao.CreateMirrorMaker;
+import  org.onap.dmaap.mr.dmaapMMAgent.dao.MirrorMaker;
 
-//@RunWith(PowerMockRunner.class)
-public class TestMirrorMakerProcessHandler {/*
-
-	@Test
-	public void testCheckMirrorMakerProcess() {
-		Boolean status=false;
-		try {
-			status = MirrorMakerProcessHandler.checkMirrorMakerProcess("AgentName",false,null);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-		}
-	}
+public class TestCreateMirrorMaker {
+	
+	CreateMirrorMaker createMirrorMaker = new CreateMirrorMaker();
+	MirrorMaker mirrorMaker = new MirrorMaker();
 	
 	@Test
-	public void testStopMirrorMaker() {
-		Boolean status=false;
-		MirrorMakerProcessHandler.stopMirrorMaker("AgentName");
-		try {
-			status = MirrorMakerProcessHandler.checkMirrorMakerProcess("AgentName",false,null);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-		}
+	public void testCreateMirrorMaker() {
+		assertNotNull(mirrorMaker);
+		assertNotNull(createMirrorMaker);
+		
+		createMirrorMaker.setMessageID("messageID");
+		createMirrorMaker.setCreateMirrorMaker(mirrorMaker);
+		
+		assertEquals("messageID",createMirrorMaker.getMessageID());
+		assertNotNull(createMirrorMaker.getCreateMirrorMaker());
 	}
-	
-	@Test
-	public void testStartMirrorMaker() {
-		Boolean status=false;
-		MirrorMakerProcessHandler.startMirrorMaker("mmagenthome", "kafkaHome", "agentName", "consumerConfig", "producerConfig", 1,"whitelist");
-		try {
-			status = MirrorMakerProcessHandler.checkMirrorMakerProcess("AgentName",false,null);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-		}
-	}
-
-*/}
+}

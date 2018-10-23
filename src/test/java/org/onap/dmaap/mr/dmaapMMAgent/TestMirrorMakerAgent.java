@@ -20,7 +20,7 @@
  *  
  *******************************************************************************/
 
-package com.att.nsa.dmaapMMAgent;
+package org.onap.dmaap.mr.dmaapMMAgent;
 
 import static org.junit.Assert.*;
 
@@ -36,8 +36,8 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.Mock;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import com.att.nsa.dmaapMMAgent.dao.ListMirrorMaker;
-import com.att.nsa.dmaapMMAgent.dao.MirrorMaker;
+import  org.onap.dmaap.mr.dmaapMMAgent.dao.ListMirrorMaker;
+import  org.onap.dmaap.mr.dmaapMMAgent.dao.MirrorMaker;
 
 //@RunWith(PowerMockRunner.class)
 public class TestMirrorMakerAgent {/*

@@ -20,33 +20,26 @@
  *  
  *******************************************************************************/
 
-package com.att.nsa.dmaapMMAgent.dao;
+package org.onap.dmaap.mr.dmaapMMAgent.dao;
 
+import static org.junit.Assert.*;
+
+import org.junit.After;
 import org.junit.Test;
 
-import com.att.nsa.dmaapMMAgent.dao.MirrorMaker;
-
-import junit.framework.TestCase;
-
-public class TestMirrorMaker extends TestCase {
-	
+public class TestUpdateMirrorMaker {
+	UpdateMirrorMaker updateMirrorMaker = new UpdateMirrorMaker();
 	MirrorMaker mirrorMaker = new MirrorMaker();
 	
 	@Test
-	public void testMirrorMaker() {
-		assertNotNull(mirrorMaker);	
+	public void testUpdateMirrorMaker() {
+		assertNotNull(mirrorMaker);
+		assertNotNull(updateMirrorMaker);
 		
-		mirrorMaker.setConsumer("consumer");
-		mirrorMaker.setName("MirrorMaker1");
-		mirrorMaker.setProducer("producer");
-		mirrorMaker.setStatus("200");
-		mirrorMaker.setWhitelist("whitelist");
+		updateMirrorMaker.setMessageID("messageID");
+		updateMirrorMaker.setUpdateMirrorMaker(mirrorMaker);
 		
-		assertEquals("consumer",mirrorMaker.getConsumer());
-		assertEquals("MirrorMaker1",mirrorMaker.getName());
-		assertEquals("producer", mirrorMaker.getProducer());
-		assertEquals("200",mirrorMaker.getStatus());
-		assertEquals("whitelist",mirrorMaker.getWhitelist());
+		assertEquals("messageID",updateMirrorMaker.getMessageID());
+		assertNotNull(updateMirrorMaker.getUpdateMirrorMaker());
 	}
-
 }

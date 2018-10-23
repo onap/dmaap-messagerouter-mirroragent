@@ -19,7 +19,7 @@
  *  ECOMP is a trademark and service mark of AT&T Intellectual Property.
  *  
  *******************************************************************************/
-package com.att.nsa.dmaapMMAgent.utils;
+package org.onap.dmaap.mr.dmaapMMAgent.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

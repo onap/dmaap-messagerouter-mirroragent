@@ -20,28 +20,33 @@
  *  
  *******************************************************************************/
 
-package com.att.nsa.dmaapMMAgent.dao;
+package org.onap.dmaap.mr.dmaapMMAgent.dao;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
 import org.junit.Test;
 
-public class TestDeleteMirrorMaker {
+import org.onap.dmaap.mr.dmaapMMAgent.dao.MirrorMaker;
 
-	DeleteMirrorMaker deleteMirrorMaker = new DeleteMirrorMaker();
+import junit.framework.TestCase;
+
+public class TestMirrorMaker extends TestCase {
+	
 	MirrorMaker mirrorMaker = new MirrorMaker();
 	
 	@Test
-	public void testDeleteMirrorMaker() {
-		assertNotNull(mirrorMaker);
-		assertNotNull(deleteMirrorMaker);
+	public void testMirrorMaker() {
+		assertNotNull(mirrorMaker);	
 		
-		deleteMirrorMaker.setMessageID("messageID");
-		deleteMirrorMaker.setDeleteMirrorMaker(mirrorMaker);
+		mirrorMaker.setConsumer("consumer");
+		mirrorMaker.setName("MirrorMaker1");
+		mirrorMaker.setProducer("producer");
+		mirrorMaker.setStatus("200");
+		mirrorMaker.setWhitelist("whitelist");
 		
-		assertEquals("messageID",deleteMirrorMaker.getMessageID());
-		assertNotNull(deleteMirrorMaker.getDeleteMirrorMaker());
+		assertEquals("consumer",mirrorMaker.getConsumer());
+		assertEquals("MirrorMaker1",mirrorMaker.getName());
+		assertEquals("producer", mirrorMaker.getProducer());
+		assertEquals("200",mirrorMaker.getStatus());
+		assertEquals("whitelist",mirrorMaker.getWhitelist());
 	}
 
 }
