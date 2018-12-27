@@ -97,6 +97,11 @@
 	    <artifactId>powermock-api-mockito</artifactId>
 	    <version>1.6.4</version>
 	</dependency>
+	    <dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20131018</version>
+		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -178,7 +183,7 @@
 
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.att.nsa.dmaapMMAgent.MirrorMakerAgent</mainClass>
+							<mainClass>org.onap.dmaap.mr.MirrorMakerAgent</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

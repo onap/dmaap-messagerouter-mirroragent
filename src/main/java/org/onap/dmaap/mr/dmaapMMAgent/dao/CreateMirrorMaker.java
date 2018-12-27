@@ -23,14 +23,14 @@ package org.onap.dmaap.mr.dmaapMMAgent.dao;
 
 public class CreateMirrorMaker {
 	String messageID;
-	MirrorMaker MirrorMaker;
+	MirrorMaker createMirrorMaker;
 
 	public MirrorMaker getCreateMirrorMaker() {
-		return MirrorMaker;
+		return createMirrorMaker;
 	}
 
 	public void setCreateMirrorMaker(MirrorMaker createMirrorMaker) {
-		this.MirrorMaker = createMirrorMaker;
+		this.createMirrorMaker = createMirrorMaker;
 	}
 
 	public String getMessageID() {

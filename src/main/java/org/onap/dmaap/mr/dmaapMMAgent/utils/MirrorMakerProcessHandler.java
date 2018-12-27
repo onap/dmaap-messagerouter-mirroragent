@@ -27,7 +27,7 @@ import java.io.InputStreamReader;
 
 import org.apache.log4j.Logger;
 
-public class MirrorMakerProcessHandler {/*
+public class MirrorMakerProcessHandler {
 	static final Logger logger = Logger.getLogger(MirrorMakerProcessHandler.class);
 	static String mmagenthome = System.getProperty("MMAGENTHOME");
 
@@ -197,4 +197,4 @@ public class MirrorMakerProcessHandler {/*
 			e.printStackTrace();
 		}
 	}
-*/}
+}
