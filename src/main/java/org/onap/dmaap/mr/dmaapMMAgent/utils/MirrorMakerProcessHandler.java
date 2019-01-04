@@ -26,12 +26,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import org.apache.log4j.Logger;
+import org.onap.dmaap.mr.dmaapMMAgent.exception.MirrorMakerAgentException;
 
 public class MirrorMakerProcessHandler {
 	static final Logger logger = Logger.getLogger(MirrorMakerProcessHandler.class);
 	static String mmagenthome = System.getProperty("MMAGENTHOME");
 
-	public static boolean checkMirrorMakerProcess(String agentname, boolean enablelogCheck, String grepLog) throws Exception {
+	public static boolean checkMirrorMakerProcess(String agentname, boolean enablelogCheck, String grepLog) throws MirrorMakerAgentException {
 		String line,linelog;
 		try {
 			Runtime rt = Runtime.getRuntime();
@@ -97,12 +98,12 @@ public class MirrorMakerProcessHandler {
 			//	}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new MirrorMakerAgentException(e.getMessage());
 		}
 		return false;
 	}
 
-	public static void stopMirrorMaker(String agentname) {
+	public static void stopMirrorMaker(String agentname) throws MirrorMakerAgentException {
 		try {
 			Runtime rt = Runtime.getRuntime();
 			Process killprocess = null;
@@ -135,13 +136,13 @@ public class MirrorMakerProcessHandler {
 
 			logger.info("Mirror Maker " + agentname + " Stopped");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new MirrorMakerAgentException(e.getMessage());
 		}
 
 	}
 
 	public static void startMirrorMaker(String mmagenthome, String kafkaHome, String agentName, String consumerConfig,
-			String producerConfig, int numStreams,  String whitelist) {
+			String producerConfig, int numStreams,  String whitelist) throws MirrorMakerAgentException {
 		try {
 			Runtime rt = Runtime.getRuntime();
 
@@ -194,7 +195,7 @@ public class MirrorMakerProcessHandler {
 			logger.info("Mirror Maker " + agentName + " Started" + " WhiteListing:" + whitelist);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new MirrorMakerAgentException(e.getMessage());
 		}
 	}
 }

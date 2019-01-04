@@ -44,6 +44,7 @@ import org.onap.dmaap.mr.dmaapMMAgent.dao.ListMirrorMaker;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.MirrorMaker;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.UpdateMirrorMaker;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.UpdateWhiteList;
+import org.onap.dmaap.mr.dmaapMMAgent.exception.MirrorMakerAgentException;
 import org.onap.dmaap.mr.dmaapMMAgent.utils.MirrorMakerProcessHandler;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -328,7 +329,7 @@ public class MirrorMakerAgent {
 		}
 	}
 
-	private void updateMirrorMaker(MirrorMaker newMirrorMaker) {
+	private void updateMirrorMaker(MirrorMaker newMirrorMaker) throws MirrorMakerAgentException {
 		boolean exists = false;
 		if (mirrorMakers != null) {
 			int mirrorMakersCount = mirrorMakers.getListMirrorMaker().size();
@@ -385,7 +386,7 @@ public class MirrorMakerAgent {
 		}
 	}
 
-	private void updateWhiteList(MirrorMaker newMirrorMaker) {
+	private void updateWhiteList(MirrorMaker newMirrorMaker) throws MirrorMakerAgentException {
 		boolean exists = false;
 		if (mirrorMakers != null) {
 			int mirrorMakersCount = mirrorMakers.getListMirrorMaker().size();
@@ -428,7 +429,7 @@ public class MirrorMakerAgent {
 		}
 	}
 
-	private void deleteMirrorMaker(MirrorMaker newMirrorMaker) {
+	private void deleteMirrorMaker(MirrorMaker newMirrorMaker) throws MirrorMakerAgentException {
 		boolean exists = false;
 		if (mirrorMakers != null) {
 			int mirrorMakersCount = mirrorMakers.getListMirrorMaker().size();
