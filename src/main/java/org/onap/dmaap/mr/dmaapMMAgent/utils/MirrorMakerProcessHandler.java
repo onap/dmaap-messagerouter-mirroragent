@@ -97,7 +97,7 @@ public class MirrorMakerProcessHandler {
 			//	}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error occured in MirrorMakerProcessHandler.checkMirrorMakerProcess"+e);
 		}
 		return false;
 	}
