@@ -56,7 +56,7 @@ public class MirrorMakerAgent {
 	static final Logger logger = Logger.getLogger(MirrorMakerAgent.class);
 	Properties mirrorMakerProperties = new Properties();
 	ListMirrorMaker mirrorMakers = null;
-	String mmagenthome = "";
+	String mmagenthome = "/opt";
 	String kafkahome = "";
 	String topicURL = "";
 	String topicname = "";
@@ -100,7 +100,7 @@ public class MirrorMakerAgent {
 	private boolean checkStartup() {
 		FileInputStream input = null;
 		try {
-			this.mmagenthome = System.getProperty("MMAGENTHOME");
+			//this.mmagenthome = System.getProperty("MMAGENTHOME");
 			input = new FileInputStream(mmagenthome + "/etc/mmagent.config");
 			logger.info("mmagenthome is set :" + mmagenthome + " loading properties at /etc/mmagent.config");
 		} catch (IOException ex) {
