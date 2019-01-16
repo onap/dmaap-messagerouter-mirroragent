@@ -111,7 +111,7 @@ public class MirrorMakerAgent {
 				try {
 					input.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error("exception occured in checkStartup "+e);
 				}
 			}
 		}
@@ -128,7 +128,7 @@ public class MirrorMakerAgent {
 				try {
 					input.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error("exception occured in checkStartup "+e);
 				}
 			}
 		}
@@ -176,7 +176,7 @@ public class MirrorMakerAgent {
 				prop.store(out, "");
 
 			} catch (Exception e) {
-				e.printStackTrace();
+				logger.error("exception occured in checkPropertiesFile "+e);
 			}
 		} finally {
 			if (input != null) {
@@ -190,7 +190,7 @@ public class MirrorMakerAgent {
 				try {
 					out.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error("exception occured in checkPropertiesFile "+e);
 				}
 			}
 		}
