@@ -55,7 +55,7 @@ public class MirrorMakerProcessHandler {
 			BufferedReader br = new BufferedReader(isr);
 			 
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+				logger.info(line);
 		//		if (line.contains("agentname=" + agentname) && line.contains("/bin/sh -c") == false) {
 					
 					//If enablelogCheck Check MirrorMaker log for errors and restart mirrormaker
