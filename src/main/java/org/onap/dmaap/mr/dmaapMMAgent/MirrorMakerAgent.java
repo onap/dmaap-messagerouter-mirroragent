@@ -21,23 +21,18 @@
  *******************************************************************************/
 package org.onap.dmaap.mr.dmaapMMAgent;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Properties;
-import org.json.JSONObject;
+
 import org.apache.log4j.Logger;
 import org.jasypt.util.text.BasicTextEncryptor;
-
+import org.json.JSONObject;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.CreateMirrorMaker;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.DeleteMirrorMaker;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.ListMirrorMaker;
@@ -45,12 +40,9 @@ import org.onap.dmaap.mr.dmaapMMAgent.dao.MirrorMaker;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.UpdateMirrorMaker;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.UpdateWhiteList;
 import org.onap.dmaap.mr.dmaapMMAgent.utils.MirrorMakerProcessHandler;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.internal.LinkedTreeMap;
 
-import com.sun.org.apache.xerces.internal.impl.dtd.models.CMAny;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 
 public class MirrorMakerAgent {
 	static final Logger logger = Logger.getLogger(MirrorMakerAgent.class);
