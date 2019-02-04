@@ -139,7 +139,7 @@ public class MirrorMakerAgent {
 			return false;
 		}
 		logger.info("Published to Topic :" + this.topicname + " Successfully");
-		response = topicUtil.subscribeTopic(topicURL, topicname, "1", response, response);
+		response = topicUtil.subscribeTopic(topicURL, topicname, "1", mechid, password);
 		if (response != null && response.startsWith("ERROR:")) {
 			logger.error("Problem subscribing to topic, please verify the config " + this.topicname + " MR URL is:"
 					+ this.topicURL + " Error is:  " + response);
