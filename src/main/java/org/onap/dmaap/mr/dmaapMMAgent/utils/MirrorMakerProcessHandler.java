@@ -45,7 +45,7 @@ public class MirrorMakerProcessHandler {
 			} else {
 				//String args[] = { "/bin/sh", "-c", "ps -ef |grep java |grep agentname=" + agentname + "~" };
 				
-				String args[] = { "/bin/sh", "-c", "ps -ef | grep `ps -ef |grep agentname=" + agentname + "~ | egrep -v 'grep|java' | awk '{print $2}' `| egrep -v '/bin/sh|grep' "};
+				String args[] = { "/bin/sh", "-c", "ps -ef |grep agentname=" + agentname + "| grep -v grep | awk '{print $1}'"};
 				logger.info("CheckMM process->"+args[2]);
 				mmprocess = rt.exec(args);
 			}
@@ -118,7 +118,7 @@ public class MirrorMakerProcessHandler {
 				//String args[] = { "/bin/sh", "-c",
 				//		"kill -9 `ps -ef |grep agentname=" + agentname + "~| egrep -v 'grep|java' | awk '{print $2}'` | egrep -v '/bin/sh|grep'"};
 				String args[] = { "/bin/sh", "-c",
-						"for i in `ps -ef |grep agentname="+ agentname + "~ | egrep -v 'grep|java' | awk '{print $2}'`;do kill -9 `ps -eaf | grep $i | egrep -v '/bin/sh|grep' | awk '{print $2}'` ;done"};
+						"kill -9 $(ps -ef | grep agentname=" + agentname + "| grep -v grep | awk '{print $1}')"};
 				logger.info ("Stop MM ->"+args[2]);				
 				// args = "kill $(ps -ef |grep java |grep agentname=" +
 				// agentname + "~| awk '{print $2}')";
@@ -170,9 +170,9 @@ public class MirrorMakerProcessHandler {
 			} else {
 				String args[] = { "/bin/sh", "-c",
 						kafkaHome + "/bin/kafka-run-class.sh -Dagentname=" + agentName
-								+ "~ kafka.tools.MirrorMaker --consumer.config " + consumerConfig
-								+ " --producer.config " + producerConfig + " --num.streams " + numStreams + "  --abort.on.send.failure true" + " --whitelist '" + whitelist + "' >"
-								+ mmagenthome + "/logs/" + agentName + "_MMaker.log 2>&1" };
+						+ " kafka.tools.MirrorMaker --consumer.config " + consumerConfig
+						+ " --producer.config " + producerConfig + " --num.streams " + numStreams + "  --abort.on.send.failure true" + " --whitelist '" + whitelist + "' 2>&1 >"
+						+ mmagenthome + "/logs/" + agentName + "_MMaker.log " };
 				final Process process = rt.exec(args);
 				new Thread() {
 					public void run() {
