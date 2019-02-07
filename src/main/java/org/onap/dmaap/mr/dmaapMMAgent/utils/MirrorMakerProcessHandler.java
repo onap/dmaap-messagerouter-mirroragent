@@ -171,8 +171,8 @@ public class MirrorMakerProcessHandler {
 				String args[] = { "/bin/sh", "-c",
 						kafkaHome + "/bin/kafka-run-class.sh -Dagentname=" + agentName
 						+ " kafka.tools.MirrorMaker --consumer.config " + consumerConfig
-						+ " --producer.config " + producerConfig + " --num.streams " + numStreams + "  --abort.on.send.failure true" + " --whitelist '" + whitelist + "' 2>&1 >"
-						+ mmagenthome + "/logs/" + agentName + "_MMaker.log " };
+						+ " --producer.config " + producerConfig + " --num.streams " + numStreams + "  --abort.on.send.failure true" + " --whitelist '" + whitelist + "'  >"
+						+ mmagenthome + "/logs/" + agentName + "_MMaker.log 2>&1" };
 				final Process process = rt.exec(args);
 				new Thread() {
 					public void run() {
