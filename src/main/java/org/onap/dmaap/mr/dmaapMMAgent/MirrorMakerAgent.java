@@ -58,10 +58,11 @@ public class MirrorMakerAgent {
 	public boolean exitLoop = false;
 	TopicUtil topicUtil = new TopicUtil();
 	private static String secret = "utdfpWlgyDQ2ZB8SLVRtmN834I1JcT9J";
+	private static final String configPath="/etc/mmagent.config";
 
 	public static void main(String[] args) {
 		if (args != null && args.length == 2) {
-			if (args[0].equals("-encrypt")) {
+			if ("-encrypt".equals(args[0])) {
 				BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
 				textEncryptor.setPassword(secret);
 				String plainText = textEncryptor.encrypt(args[1]);
@@ -93,7 +94,7 @@ public class MirrorMakerAgent {
 		FileInputStream input = null;
 		try {
 			//this.mmagenthome = System.getProperty("MMAGENTHOME");
-			input = new FileInputStream(mmagenthome + "/etc/mmagent.config");
+			input = new FileInputStream(mmagenthome + configPath);
 			logger.info("mmagenthome is set :" + mmagenthome + " loading properties at /etc/mmagent.config");
 		} catch (IOException ex) {
 			logger.error(mmagenthome + "/etc/mmagent.config not found.  Set -DMMAGENTHOME and check the config file");
@@ -154,7 +155,7 @@ public class MirrorMakerAgent {
 				input = new FileInputStream(mmagenthome + "/etc/" + propName + ".properties");
 				Properties prop = new Properties();
 				prop.load(input);
-				if (propName.equals("consumer")) {
+				if ("consumer".equals(propName)) {
 					prop.setProperty("group.id", mm.name);
 
 					prop.setProperty("bootstrap.servers", mm.consumer);
@@ -175,6 +176,7 @@ public class MirrorMakerAgent {
 				try {
 					input.close();
 				} catch (IOException e) {
+					logger.error("exception occured in checkPropertiesFile "+e);
 					e.printStackTrace();
 				}
 			}
@@ -242,7 +244,7 @@ public class MirrorMakerAgent {
 						// API
 						// else use the jsonObject
 						if (topicMessage.startsWith("\"")) {
-							topicMessage = g.fromJson(topicMessage.toString(), String.class);
+							topicMessage = g.fromJson(topicMessage, String.class);
 						}
 						object = g.fromJson(topicMessage, LinkedTreeMap.class);
 
@@ -270,6 +272,7 @@ public class MirrorMakerAgent {
 
 			}
 		} catch (Exception e) {
+			logger.error("Error occured in readAgentTopic"+e);
 			e.printStackTrace();
 		}
 
@@ -305,7 +308,7 @@ public class MirrorMakerAgent {
 		mirrorMakerProperties.setProperty("mirrormakers", g.toJson(this.mirrorMakers));
 		OutputStream out = null;
 		try {
-			out = new FileOutputStream(mmagenthome + "/etc/mmagent.config");
+			out = new FileOutputStream(mmagenthome + configPath);
 			mirrorMakerProperties.store(out, "");
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -354,7 +357,7 @@ public class MirrorMakerAgent {
 			mirrorMakerProperties.setProperty("mirrormakers", g.toJson(this.mirrorMakers));
 			OutputStream out = null;
 			try {
-				out = new FileOutputStream(mmagenthome + "/etc/mmagent.config");
+				out = new FileOutputStream(mmagenthome + configPath);
 				mirrorMakerProperties.store(out, "");
 				MirrorMakerProcessHandler.stopMirrorMaker(newMirrorMaker.name);
 				try {
@@ -397,7 +400,7 @@ public class MirrorMakerAgent {
 			mirrorMakerProperties.setProperty("mirrormakers", g.toJson(this.mirrorMakers));
 			OutputStream out = null;
 			try {
-				out = new FileOutputStream(mmagenthome + "/etc/mmagent.config");
+				out = new FileOutputStream(mmagenthome + configPath);
 				mirrorMakerProperties.store(out, "");
 				MirrorMakerProcessHandler.stopMirrorMaker(newMirrorMaker.name);
 				try {
@@ -451,7 +454,7 @@ public class MirrorMakerAgent {
 			mirrorMakerProperties.setProperty("mirrormakers", g.toJson(this.mirrorMakers));
 			OutputStream out = null;
 			try {
-				out = new FileOutputStream(mmagenthome + "/etc/mmagent.config");
+				out = new FileOutputStream(mmagenthome + configPath);
 				mirrorMakerProperties.store(out, "");
 				MirrorMakerProcessHandler.stopMirrorMaker(newMirrorMaker.name);
 			} catch (IOException ex) {
@@ -474,7 +477,7 @@ public class MirrorMakerAgent {
 		InputStream input = null;
 		try {
 
-			input = new FileInputStream(mmagenthome + "/etc/mmagent.config");
+			input = new FileInputStream(mmagenthome + configPath);
 			mirrorMakerProperties.load(input);
 			Gson g = new Gson();
 			if (mirrorMakerProperties.getProperty("mirrormakers") == null) {
