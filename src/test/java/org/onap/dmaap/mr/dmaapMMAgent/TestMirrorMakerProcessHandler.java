@@ -30,8 +30,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import  org.onap.dmaap.mr.dmaapMMAgent.utils.MirrorMakerProcessHandler;
 
-//@RunWith(PowerMockRunner.class)
-public class TestMirrorMakerProcessHandler {/*
+@RunWith(PowerMockRunner.class)
+public class TestMirrorMakerProcessHandler {
 
 	@Test
 	public void testCheckMirrorMakerProcess() {
@@ -65,4 +65,4 @@ public class TestMirrorMakerProcessHandler {/*
 		}
 	}
 
-*/}
+}

@@ -23,7 +23,6 @@
 package org.onap.dmaap.mr.dmaapMMAgent;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.spy;
 
 import java.util.ArrayList;
 
@@ -33,7 +32,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import org.onap.dmaap.mr.dmaapMMAgent.dao.ListMirrorMaker;
@@ -71,6 +69,14 @@ public class TestMirrorMakerAgent {
 		mirrorMakerAgent.main(args);
 
 	}
+	
+	@Test
+	public void testcheckStartupWtOneParam() {
+		String parameters[] = { "test" };
+		mirrorMakerAgent.main(parameters);
+
+	}
+	
 
 	@Test
 	public void testReadAgentTopics() {
@@ -156,14 +162,14 @@ public class TestMirrorMakerAgent {
 	@Test
 	public void testPublish() {
 		TopicUtil util = new TopicUtil();
-		util.publishTopic("topicURL", "topicname", "mechid", "password", "message");
+		util.publishTopic("http://localhost:3904/events/testtopic", "topicname", "mechid", "password", "message");
 
 	}
 
 	@Test
 	public void testSubscribe() {
 		TopicUtil util = new TopicUtil();
-		util.subscribeTopic("topicURL", "topicname", "1", "mechid", "password");
+		util.subscribeTopic("http://localhost:3904/events/testtopic/cg/c", "topicname", "1", "mechid", "password");
 
 	}
 }
