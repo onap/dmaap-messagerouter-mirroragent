@@ -22,7 +22,6 @@
 
 package org.onap.dmaap.mr.dmaapMMAgent;
 
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,8 +29,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import  org.onap.dmaap.mr.dmaapMMAgent.utils.MirrorMakerProcessHandler;
 
-//@RunWith(PowerMockRunner.class)
-public class TestMirrorMakerProcessHandler {/*
+@RunWith(PowerMockRunner.class)
+public class TestMirrorMakerProcessHandler {
 
 	@Test
 	public void testCheckMirrorMakerProcess() {
@@ -65,4 +64,4 @@ public class TestMirrorMakerProcessHandler {/*
 		}
 	}
 
-*/}
+}
