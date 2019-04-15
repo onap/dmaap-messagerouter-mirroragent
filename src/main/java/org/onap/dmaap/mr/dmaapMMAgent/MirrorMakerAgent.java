@@ -92,11 +92,10 @@ public class MirrorMakerAgent {
 	private boolean checkStartup() {
 		FileInputStream input = null;
 		try {
-			//this.mmagenthome = System.getProperty("MMAGENTHOME");
 			input = new FileInputStream(mmagenthome + "/etc/mmagent.config");
 			logger.info("mmagenthome is set :" + mmagenthome + " loading properties at /etc/mmagent.config");
 		} catch (IOException ex) {
-			logger.error(mmagenthome + "/etc/mmagent.config not found.  Set -DMMAGENTHOME and check the config file");
+			logger.error(mmagenthome + "/etc/mmagent.config not found.");
 			return false;
 		} finally {
 			if (input != null) {
@@ -111,7 +110,7 @@ public class MirrorMakerAgent {
 		input = null;
 		try {
 			input = new FileInputStream(kafkahome + "/bin/kafka-run-class.sh");
-			logger.info("kakahome is set :" + kafkahome);
+			logger.info("kafkahome is set :" + kafkahome);
 		} catch (IOException ex) {
 			logger.error(kafkahome + "/bin/kafka-run-class.sh not found.  Make sure kafka home is set correctly");
 			return false;

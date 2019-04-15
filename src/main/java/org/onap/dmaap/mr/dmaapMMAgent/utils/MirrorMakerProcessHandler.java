@@ -29,7 +29,7 @@ import org.apache.log4j.Logger;
 
 public class MirrorMakerProcessHandler {
 	static final Logger logger = Logger.getLogger(MirrorMakerProcessHandler.class);
-	static String mmagenthome = System.getProperty("MMAGENTHOME");
+	static String mmagenthome = "/opt";
 
 	public static boolean checkMirrorMakerProcess(String agentname, boolean enablelogCheck, String grepLog) throws Exception {
 		String line,linelog;
