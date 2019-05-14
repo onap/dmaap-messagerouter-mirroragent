@@ -79,8 +79,7 @@ public class MirrorMakerAgent {
 			try {
 				agent.checkAgentProcess();
 			} catch (Exception e) {
-
-				e.printStackTrace();
+			    logger.error("exception occured in checkAgentProcess ", e);
 			}
 			agent.readAgentTopic();
 		} else {
@@ -95,7 +94,7 @@ public class MirrorMakerAgent {
 			input = new FileInputStream(mmagenthome + "/etc/mmagent.config");
 			logger.info("mmagenthome is set :" + mmagenthome + " loading properties at /etc/mmagent.config");
 		} catch (IOException ex) {
-			logger.error(mmagenthome + "/etc/mmagent.config not found.");
+			logger.error(mmagenthome + "/etc/mmagent.config not found.", ex);
 			return false;
 		} finally {
 			if (input != null) {
@@ -112,7 +111,7 @@ public class MirrorMakerAgent {
 			input = new FileInputStream(kafkahome + "/bin/kafka-run-class.sh");
 			logger.info("kafkahome is set :" + kafkahome);
 		} catch (IOException ex) {
-			logger.error(kafkahome + "/bin/kafka-run-class.sh not found.  Make sure kafka home is set correctly");
+			logger.error(kafkahome + "/bin/kafka-run-class.sh not found.  Make sure kafka home is set correctly", ex);
 			return false;
 		} finally {
 			if (input != null) {
@@ -174,7 +173,7 @@ public class MirrorMakerAgent {
 				try {
 					input.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+				    logger.error("exception occured in checkPropertiesFile ", e);
 				}
 			}
 			if (out != null) {
@@ -269,7 +268,7 @@ public class MirrorMakerAgent {
 
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+		    logger.error("exception occured in readAgentTopic ", e);
 		}
 
 	}
@@ -307,13 +306,13 @@ public class MirrorMakerAgent {
 			out = new FileOutputStream(mmagenthome + "/etc/mmagent.config");
 			mirrorMakerProperties.store(out, "");
 		} catch (IOException ex) {
-			ex.printStackTrace();
+		    logger.error("exception occured in createMirrorMaker ", ex);
 		} finally {
 			if (out != null) {
 				try {
 					out.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+				    logger.error("exception occured in createMirrorMaker ", e);
 				}
 			}
 		}
@@ -361,13 +360,13 @@ public class MirrorMakerAgent {
 				} catch (InterruptedException e) {
 				}
 			} catch (IOException ex) {
-				ex.printStackTrace();
+			    logger.error("exception occured in updateMirrorMaker ", ex);
 			} finally {
 				if (out != null) {
 					try {
 						out.close();
 					} catch (IOException e) {
-						e.printStackTrace();
+					    logger.error("exception occured in updateMirrorMaker ", e);
 					}
 				}
 			}
@@ -404,13 +403,13 @@ public class MirrorMakerAgent {
 				} catch (InterruptedException e) {
 				}
 			} catch (IOException ex) {
-				ex.printStackTrace();
+			    logger.error("exception occured in updateWhiteList ", ex);
 			} finally {
 				if (out != null) {
 					try {
 						out.close();
 					} catch (IOException e) {
-						e.printStackTrace();
+					    logger.error("exception occured in updateWhiteList ", e);
 					}
 				}
 			}
@@ -439,12 +438,14 @@ public class MirrorMakerAgent {
 				File file = new File(path);
 				file.delete();
 			} catch (Exception ex) {
+			    logger.error("exception occured in deleteMirrorMaker ", ex);
 			}
 			try {
 				String path = mmagenthome + "/etc/" + newMirrorMaker.name + "producer" + ".properties";
 				File file = new File(path);
 				file.delete();
 			} catch (Exception ex) {
+			    logger.error("exception occured in deleteMirrorMaker ", ex);
 			}
 			Gson g = new Gson();
 			mirrorMakerProperties.setProperty("mirrormakers", g.toJson(this.mirrorMakers));
@@ -454,13 +455,13 @@ public class MirrorMakerAgent {
 				mirrorMakerProperties.store(out, "");
 				MirrorMakerProcessHandler.stopMirrorMaker(newMirrorMaker.name);
 			} catch (IOException ex) {
-				ex.printStackTrace();
+			    logger.error("exception occured in deleteMirrorMaker ", ex);
 			} finally {
 				if (out != null) {
 					try {
 						out.close();
 					} catch (IOException e) {
-						e.printStackTrace();
+					    logger.error("exception occured in deleteMirrorMaker ", e);
 					}
 				}
 			}
@@ -479,7 +480,7 @@ public class MirrorMakerAgent {
 			if (mirrorMakerProperties.getProperty("mirrormakers") == null) {
 				this.mirrorMakers = new ListMirrorMaker();
 				ArrayList<MirrorMaker> list = this.mirrorMakers.getListMirrorMaker();
-				list = new ArrayList<MirrorMaker>();
+				list = new ArrayList<>();
 				this.mirrorMakers.setListMirrorMaker(list);
 			} else {
 				this.mirrorMakers = g.fromJson(mirrorMakerProperties.getProperty("mirrormakers"),
@@ -496,13 +497,13 @@ public class MirrorMakerAgent {
 			textEncryptor.setPassword(secret);
 			this.password = textEncryptor.decrypt(mirrorMakerProperties.getProperty("password"));
 		} catch (Exception ex) {
-			// ex.printStackTrace();
+		    logger.error("exception occured in loadProperties ", ex);
 		} finally {
 			if (input != null) {
 				try {
 					input.close();
 				} catch (IOException e) {
-					// e.printStackTrace();
+				    logger.error("exception occured in loadProperties ", e);
 				}
 			}
 		}
