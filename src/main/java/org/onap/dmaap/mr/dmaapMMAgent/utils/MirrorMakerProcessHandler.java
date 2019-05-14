@@ -135,7 +135,7 @@ public class MirrorMakerProcessHandler {
 
 			logger.info("Mirror Maker " + agentname + " Stopped");
 		} catch (Exception e) {
-			e.printStackTrace();
+		    logger.error("exception occured in stopMirrorMaker ", e);
 		}
 
 	}
@@ -163,7 +163,7 @@ public class MirrorMakerProcessHandler {
 								// System.out.println(line);
 							}
 						} catch (Exception anExc) {
-							anExc.printStackTrace();
+						    logger.error("exception occured in startMirrorMaker ", anExc);
 						}
 					}
 				}.start();
@@ -185,7 +185,7 @@ public class MirrorMakerProcessHandler {
 								// System.out.println(line);
 							}
 						} catch (Exception anExc) {
-							anExc.printStackTrace();
+						    logger.error("exception occured in startMirrorMaker ", anExc);
 						}
 					}
 				}.start();
@@ -194,7 +194,7 @@ public class MirrorMakerProcessHandler {
 			logger.info("Mirror Maker " + agentName + " Started" + " WhiteListing:" + whitelist);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+		    logger.error("exception occured in startMirrorMaker ", e);
 		}
 	}
 }
