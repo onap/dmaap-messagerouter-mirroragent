@@ -1,4 +1,5 @@
 # UUID                                                                                          	Group Name
 #
+13eacb1e8043ab6ccabefff45d3ce5e850f00085                                                        	saml/onap-gerrit-dmaap-messagerouter-mirroragent-committers
 daebbf523be390041a1a9c0e340a6d833aae5043                                                        	GitHub Replication
 ldap:cn=onap-gerrit-dmaap-messagerouter-mirroragent-committers,ou=Groups,dc=freestandards,dc=org	ldap/onap-gerrit-dmaap-messagerouter-mirroragent-committers
