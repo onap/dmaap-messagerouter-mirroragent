@@ -21,6 +21,8 @@
  *******************************************************************************/
 package org.onap.dmaap.mr.dmaapMMAgent;
 
+import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -29,8 +31,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Properties;
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jasypt.util.text.BasicTextEncryptor;
 import org.json.JSONObject;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.CreateMirrorMaker;
@@ -41,11 +43,8 @@ import org.onap.dmaap.mr.dmaapMMAgent.dao.UpdateMirrorMaker;
 import org.onap.dmaap.mr.dmaapMMAgent.dao.UpdateWhiteList;
 import org.onap.dmaap.mr.dmaapMMAgent.utils.MirrorMakerProcessHandler;
 
-import com.google.gson.Gson;
-import com.google.gson.internal.LinkedTreeMap;
-
 public class MirrorMakerAgent {
-	static final Logger logger = Logger.getLogger(MirrorMakerAgent.class);
+	private static final Logger logger = LogManager.getLogger(MirrorMakerAgent.class);
 	Properties mirrorMakerProperties = new Properties();
 	ListMirrorMaker mirrorMakers = null;
 	String mmagenthome = "/opt";

@@ -22,21 +22,20 @@
 
 package org.onap.dmaap.mr.dmaapMMAgent;
 
+import com.google.gson.Gson;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import org.apache.log4j.Logger;
-
-import com.google.gson.Gson;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TopicUtil {
 
-	static final Logger logger = Logger.getLogger(TopicUtil.class);
+	private static final Logger logger = LogManager.getLogger(TopicUtil.class);
 
 	public String publishTopic(String topicURL, String topicname, String mechid, String password, String message) {
 		try {

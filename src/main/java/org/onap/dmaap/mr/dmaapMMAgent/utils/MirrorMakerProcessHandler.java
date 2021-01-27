@@ -24,11 +24,11 @@ package org.onap.dmaap.mr.dmaapMMAgent.utils;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MirrorMakerProcessHandler {
-	static final Logger logger = Logger.getLogger(MirrorMakerProcessHandler.class);
+	private static final Logger logger = LogManager.getLogger(MirrorMakerProcessHandler.class);
 	static String mmagenthome = "/opt";
 
 	public static boolean checkMirrorMakerProcess(String agentname, boolean enablelogCheck, String grepLog) throws Exception {
